@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Radial Chart with Static Circle</title>
+    <style>
+        @font-face {
+            font-family: 'VistaSansOT-Bold';
+            src: url('VistaSansOT-Book.otf') format('opentype');
+            font-weight: bold;
+        }
+                
+        html, body {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .chart-container {
+            width: 100%;
+            max-width: 600px;
+            aspect-ratio: 1 / 1;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+        }
+        .chart-container svg {
+            display: block;
+            width: 100%;
+            height: auto;
+            aspect-ratio: 1 / 1;
+            background-color: transparent;
+        }
+
+        path {
+            transition: fill 0.2s ease-out;
+            transform-origin: center;
+        }
+
+        path.score:hover {
+            fill: #687CA2;
+            cursor: pointer;
+        }
+
+        .path-text {
+            fill: white;
+            font-family: 'VistaSansOT-Bold';
+            font-size: 9px;
+            font-weight: bold;
+        }
+
+        .circle-text {
+            fill: #A02B93;
+            font-family: 'VistaSansOT-Bold';
+            font-size: 11px;
+            font-weight: bold;
+        }
+
+        @media (max-width: 600px) {
+            .chart-container {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="chart-container">
+        <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
+            <g id="chart">
+                                    <path id="purple-curve" d="M 230,150 A 100,100 0 0,1 350,235" stroke="#A02B93" stroke-width="14" fill="none" stroke-linecap="round" />
+                                    <circle cx="348" cy="231" r="14" fill="#A02B93" />
+                                    <image class="static" href="economisch.svg" x="340" y="222" width="17" height="15" />
+
+                                    <text class="path-text"  dy="3">
+                                        <textPath href="#purple-curve" startOffset="50%" text-anchor="middle">Economisch</textPath>
+                                    </text>
+                                    <path id="light-blue-curve" d="M 350,266 A 100,100 0 0,1 236,350" stroke="#0088CA" stroke-width="14" fill="none" stroke-linecap="round" />
+                                    <circle cx="236" cy="349" r="14" fill="#0088CA" />
+                                    <image class="static" href="sociaal.svg" x="226" y="341" width="20" height="18" />
+
+                                    <text class="path-text"  dy="3">
+                                        <textPath href="#light-blue-curve" startOffset="50%" text-anchor="middle" method="align">
+                                            <tspan rotate="180">laaicoS</tspan>
+                                        </textPath>
+                                    </text>
+
+                                    <path id="dark-blue-curve" d="M 205,340 A 100,100 0 0,1 160,205" stroke="#006091" stroke-width="14" fill="none" stroke-linecap="round" />
+                                    <circle cx="160" cy="205" r="14" fill="#006091" />
+                                    <image class="static" href="ecologisch.svg" x="147" y="191" width="26" height="26" />
+
+                                    <text class="path-text"  dy="3">
+                                        <textPath href="#dark-blue-curve" startOffset="50%" text-anchor="middle" method="align" text-transform: uppercase>
+                                            <tspan rotate="180">hcsigolocE</tspan>
+                                        </textPath>
+                                    </text>
+
+                                </g>
+                                <image class="center-image" href="image_model.png" x="180" y="175" width="140" height="140" />
+                            <text x="220" y="35" text-anchor="end" font-family="VistaSansOT-Bold" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
+                                Toonaangevend
+                            </text>
+                            <text x="220" y="56.5" text-anchor="end" font-family="VistaSansOT-Bold" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
+                                Op niveau
+                            </text>
+                            <text x="220" y="78" text-anchor="end" font-family="VistaSansOT-Bold" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
+                                Actie gewenst
+                            </text>
+                            <text x="220" y="99.5" text-anchor="end" font-family="VistaSansOT-Bold" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
+                                Actie vereist
+                            </text>
+        </svg>
+    </div>
+
+    <script>
+        const centerX = 250;
+        const centerY = 250;
+        const outerRadius = 200;
+        const innerRadius = 120;
+        const numSegments = 10;
+        const gap = 0.02;
+        const removeIndices = [6];
+        
+        const scores = [10, 7.5, 10, 7.5, 5, 5, 2.5, 5, 2.5, 5, 2.5, 7.5];
+        const labels = ["Veiligheid", "Leefbaarheid", "Inclusiviteit", "Klimaatadaptatie", "Natuur & /n Biodiversiteit", "Bronnenmanagement", "G", "Bezoekers /n & Bestedingen", "Toeristisch aanbod", "Bereikbaarheid"]; // Labels for segments
+        const descriptions = [ // Add your descriptions here, matching the order of your labels
+            "Een veilige omgeving is de basis voor een succesvolle bestemming. Om dit inzichtelijk te maken kijken we onder andere naar overlast, ondermijningsrisico's en de veiligheidsbeleving.",
+            "De kwaliteit van leven voor de lokale bevolking in relatie tot toerisme staat centraal in deze indicator. Hiervoor kijken we naar de ervaren balans tussen de voordelen en nadelen van toerisme voor de gemeenschap, waaronder de mate van toeristische druk en (ervaren) bewonersprofijt.",
+            "Een gastvrije bestemming is toegankelijk voor iedereen, ongeacht hun achtergrond of fysieke gesteldheid. Bij deze indicator kijken we onder andere naar de toegankelijkheid van de openbare ruimte, digitale platforms en essentiële voorzieningen zoals openbare toiletten.",
+            "Klimaatadaptatie is essentieel voor de toekomstbestendigheid van een bestemming. Afhankelijk van de bestemming brengen we dit in kaart door te kijken naar zaken zoals openbaar groen, schaduw, zwemwaterlocaties of risico's voor droogte en natuurbranden.",
+            "Een waardevolle natuurlijke omgeving is belangrijk voor een bestemming, maar de balans tussen gebruik en bescherming van natuur moet zorgvuldig worden bewaakt. Daarom kijken we naar de staat van de natuur en de aanwezige biodiversiteit, hiervoor identificeren we kwetsbare gebieden in relatie tot toeristische activiteiten.",
+            "Verantwoordelijk gebruik van energie, water en andere middelen is essentieel voor het waarborgen van een leefbare omgeving voor toekomstige generaties. Daarom kijken we naar aspecten zoals CO2-uitstoot, energieverbruik van toeristisch aanbod en mobiliteit en watergebruik.",
+            "Description for G.",
+            "Om inzicht te krijgen in de dynamiek van het toerisme, kijken we naar de stroom van mensen die onze bestemming aandoen en de economische activiteit die hiermee gepaard gaat. Hierbij kijken we onder andere naar de omvang van het bezoek, de financiële impact en de spreiding door het jaar.",
+            "De aantrekkelijkheid van een bestemming wordt mede bepaald door wat er te beleven en te ervaren valt. We brengen in kaart welke faciliteiten en mogelijkheden er zijn voor bezoekers, waarbij we onder andere kijken naar de beschikbaarheid van accommodaties en andere relevante voorzieningen.",
+            "Goede bereikbaarheid is essentieel voor de economische vitaliteit en aantrekkelijkheid van een bestemming. Daarom analyseren we hoe goed een bestemming te bereiken is en hoe men zich er lokaal kan verplaatsen, waarbij we kijken naar de toegankelijkheid via auto, openbaar vervoer en fiets."
+        ];
+        
+        const svgNS = "http://www.w3.org/2000/svg";
+        const chart = document.getElementById("chart");
+        const chartContainer = document.querySelector('.chart-container'); // Get the container for relative positioning
+        
+       
+        function polarToCartesian(radius, angle) {
+            return [
+                centerX + radius * Math.cos(angle),
+                centerY + radius * Math.sin(angle)
+            ];
+        }
+        
+        const theta = Array.from({ length: numSegments + 1 }, (_, i) => (i / numSegments) * 2 * Math.PI);
+        
+        scores.forEach((score, i) => {
+            if (removeIndices.includes(i)) return;
+        
+            const startAngle = theta[i] + gap;
+            const endAngle = theta[i + 1] - gap;
+            const segmentRadius = innerRadius + (score / 10) * (outerRadius - innerRadius);
+        
+            // Create background arc
+            const [bgX1, bgY1] = polarToCartesian(outerRadius, startAngle);
+            const [bgX2, bgY2] = polarToCartesian(outerRadius, endAngle);
+            const [bgX3, bgY3] = polarToCartesian(innerRadius, endAngle);
+            const [bgX4, bgY4] = polarToCartesian(innerRadius, startAngle);
+            const bgPathD = `M ${bgX1},${bgY1} A ${outerRadius},${outerRadius} 0 0,1 ${bgX2},${bgY2}
+                                L ${bgX3},${bgY3} A ${innerRadius},${innerRadius} 0 0,0 ${bgX4},${bgY4} Z`;
+        
+            const bgPath = document.createElementNS(svgNS, "path");
+            bgPath.setAttribute("d", bgPathD);
+            bgPath.setAttribute("fill", "#EDF3F7");
+            chart.appendChild(bgPath);
+        
+            // Create score arc
+            const [x1, y1] = polarToCartesian(segmentRadius, startAngle);
+            const [x2, y2] = polarToCartesian(segmentRadius, endAngle);
+            const [x3, y3] = polarToCartesian(innerRadius, endAngle);
+            const [x4, y4] = polarToCartesian(innerRadius, startAngle);
+            const pathD = `M ${x1},${y1} A ${segmentRadius},${segmentRadius} 0 0,1 ${x2},${y2}
+                                L ${x3},${y3} A ${innerRadius},${innerRadius} 0 0,0 ${x4},${y4} Z`;
+        
+            const path = document.createElementNS(svgNS, "path");
+            path.setAttribute("d", pathD);
+            const colors = ['#0088CA','#0088CA','#0088CA','#006091', '#006091', '#006091', '#000000', '#A02B93', '#A02B93', '#A02B93', '#A02B93', '#A02B93'];
+            path.setAttribute("fill", colors[i]);
+            path.classList.add("score");
+            path.setAttribute('data-index', i); // Store the index on the path element
+        
+            path.addEventListener("mouseenter", (event) => {
+                path.setAttribute("fill", "#687CA2");
+                chart.appendChild(path);
+                const centerImage = document.querySelector(".center-image");
+                centerImage.setAttribute("href", `image_${i}.png`);
+        
+                // Get the bounding box of the hovered path element
+                const bbox = event.target.getBoundingClientRect();
+                const containerRect = chartContainer.getBoundingClientRect();
+        
+            });
+        
+            path.addEventListener("mouseleave", () => {
+                path.setAttribute("fill", colors[parseInt(path.getAttribute('data-index'))]); // Use stored index
+                const centerImage = document.querySelector(".center-image");
+                centerImage.setAttribute("href", "image_model.png");
+            });
+        
+            chart.appendChild(path);
+        
+            // Create text arc
+            const textRadius = outerRadius + 10; // Slightly beyond the outer arc for visibility
+            const [arcStartX, arcStartY] = polarToCartesian(textRadius, startAngle);
+            const [arcEndX, arcEndY] = polarToCartesian(textRadius, endAngle);
+            const arcPathD = `M ${arcStartX},${arcStartY} A ${textRadius},${textRadius} 0 0,1 ${arcEndX},${arcEndY}`;
+        
+            const arcPath = document.createElementNS(svgNS, "path");
+            const arcPathID = `arcPath${i}`;
+            arcPath.setAttribute("id", arcPathID);
+            arcPath.setAttribute("d", arcPathD);
+            arcPath.setAttribute("fill", "none");
+            arcPath.setAttribute("stroke", "transparent"); // Invisible stroke for text path reference
+            chart.appendChild(arcPath);
+        
+            // Attach text to the arc path
+            const textElement = document.createElementNS(svgNS, "text");
+            const textPath = document.createElementNS(svgNS, "textPath");
+            textPath.setAttribute("href", `#${arcPathID}`);
+            textPath.setAttribute("startOffset", "50%"); // Center the text
+            textPath.setAttribute("text-anchor", "middle");
+        
+            textElement.appendChild(textPath);
+            textPath.setAttribute("fill", colors[i]);
+            textElement.setAttribute("font-size", "9px");
+            textElement.setAttribute("font-family", "VistaSansOT-Bold");
+            textElement.setAttribute("font-weight", "bold"); // Make text bold
+        
+            let formattedText;
+        
+            if (i < 6) {
+                if (labels[i].includes(" /n ")) {
+                    const [firstPart, secondPart] = labels[i].split(" /n ");
+                    formattedText = `
+                        <tspan x="0" dy="0em">${firstPart.split("").reverse().map(letter =>
+                            `<tspan dx="0em" rotate="180">${letter}</tspan>`).join("")}</tspan>
+                        <tspan x="0" dy="1.2em">${secondPart.split("").reverse().map(letter =>
+                            `<tspan dx="0em" rotate="180">${letter}</tspan>`).join("")}</tspan>`;
+                } else {
+                    formattedText = labels[i]
+                        .split("")
+                        .reverse()
+                        .map(letter => `<tspan dx="0em" rotate="180">${letter}</tspan>`)
+                        .join("");
+                }
+            } else {
+                // Normal text processing with multi-line support
+                if (labels[i].includes(" /n ")) {
+                    const [firstPart, secondPart] = labels[i].split(" /n ");
+                    formattedText = `
+                        <tspan x="0" dy="-0.6em">${firstPart}</tspan>
+                        <tspan x="0" dy="1.2em">${secondPart}</tspan>`;
+                } else {
+                    formattedText = `<tspan x="0" dy="0.6em">${labels[i]}</tspan>`;
+                }
+            }
+        
+        
+            // Insert transformed text into textPath
+            textPath.innerHTML = formattedText;
+        
+            chart.appendChild(textElement);
+        });
+            </script>
+</body>
+</html>
