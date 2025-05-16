@@ -47,14 +47,14 @@
 
         .path-text {
             fill: white;
-            font-family: 'VistaSansOT-Bold';
+            font-family: 'VistaSansOT-Bold', Arial, sans-serif;
             font-size: 9px;
             font-weight: bold;
         }
 
         .circle-text {
             fill: #A02B93;
-            font-family: 'VistaSansOT-Bold';
+            font-family: 'VistaSansOT-Bold', Arial, sans-serif;
             font-size: 11px;
             font-weight: bold;
         }
@@ -71,47 +71,46 @@
     <div class="chart-container">
         <svg viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid meet">
             <g id="chart">
-                                    <path id="purple-curve" d="M 230,150 A 100,100 0 0,1 350,235" stroke="#A02B93" stroke-width="14" fill="none" stroke-linecap="round" />
-                                    <circle cx="348" cy="231" r="14" fill="#A02B93" />
-                                    <image class="static" href="economisch.svg" x="340" y="222" width="17" height="15" />
+                <path id="purple-curve" d="M 230,150 A 100,100 0 0,1 350,235" stroke="#A02B93" stroke-width="14" fill="none" stroke-linecap="round" />
+                <circle cx="348" cy="231" r="14" fill="#A02B93" />
+                <image class="static" href="economisch.svg" x="340" y="222" width="17" height="15" />
 
-                                    <text class="path-text"  dy="3">
-                                        <textPath href="#purple-curve" startOffset="50%" text-anchor="middle">Economisch</textPath>
-                                    </text>
-                                    <path id="light-blue-curve" d="M 350,266 A 100,100 0 0,1 236,350" stroke="#0088CA" stroke-width="14" fill="none" stroke-linecap="round" />
-                                    <circle cx="236" cy="349" r="14" fill="#0088CA" />
-                                    <image class="static" href="sociaal.svg" x="226" y="341" width="20" height="18" />
+                <text class="path-text" dy="3">
+                    <textPath href="#purple-curve" startOffset="50%" text-anchor="middle">Economisch</textPath>
+                </text>
+                <path id="light-blue-curve" d="M 350,266 A 100,100 0 0,1 236,350" stroke="#0088CA" stroke-width="14" fill="none" stroke-linecap="round" />
+                <circle cx="236" cy="349" r="14" fill="#0088CA" />
+                <image class="static" href="sociaal.svg" x="226" y="341" width="20" height="18" />
 
-                                    <text class="path-text"  dy="3">
-                                        <textPath href="#light-blue-curve" startOffset="50%" text-anchor="middle" method="align">
-                                            <tspan rotate="180">laaicoS</tspan>
-                                        </textPath>
-                                    </text>
+                <text class="path-text" dy="3">
+                    <textPath href="#light-blue-curve" startOffset="50%" text-anchor="middle" side="right">
+                        <tspan rotate="180">laaicoS</tspan>
+                    </textPath>
+                </text>
 
-                                    <path id="dark-blue-curve" d="M 205,340 A 100,100 0 0,1 160,205" stroke="#006091" stroke-width="14" fill="none" stroke-linecap="round" />
-                                    <circle cx="160" cy="205" r="14" fill="#006091" />
-                                    <image class="static" href="ecologisch.svg" x="147" y="191" width="26" height="26" />
+                <path id="dark-blue-curve" d="M 205,340 A 100,100 0 0,1 160,205" stroke="#006091" stroke-width="14" fill="none" stroke-linecap="round" />
+                <circle cx="160" cy="205" r="14" fill="#006091" />
+                <image class="static" href="ecologisch.svg" x="147" y="191" width="26" height="26" />
 
-                                    <text class="path-text"  dy="3">
-                                        <textPath href="#dark-blue-curve" startOffset="50%" text-anchor="middle" method="align" text-transform: uppercase>
-                                            <tspan rotate="180">hcsigolocE</tspan>
-                                        </textPath>
-                                    </text>
-
-                                </g>
-                                <image class="center-image" href="image_model.png" x="180" y="175" width="140" height="140" />
-                            <text x="220" y="35" text-anchor="end" font-family="VistaSansOT-Bold" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
-                                Toonaangevend
-                            </text>
-                            <text x="220" y="56.5" text-anchor="end" font-family="VistaSansOT-Bold" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
-                                Op niveau
-                            </text>
-                            <text x="220" y="78" text-anchor="end" font-family="VistaSansOT-Bold" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
-                                Actie gewenst
-                            </text>
-                            <text x="220" y="99.5" text-anchor="end" font-family="VistaSansOT-Bold" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
-                                Actie vereist
-                            </text>
+                <text class="path-text" dy="3">
+                    <textPath href="#dark-blue-curve" startOffset="50%" text-anchor="middle" side="right">
+                        <tspan rotate="180">hcsigolocE</tspan>
+                    </textPath>
+                </text>
+            </g>
+            <image class="center-image" href="image_model.png" x="180" y="175" width="140" height="140" />
+            <text x="220" y="35" text-anchor="end" font-family="VistaSansOT-Bold, Arial, sans-serif" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
+                Toonaangevend
+            </text>
+            <text x="220" y="56.5" text-anchor="end" font-family="VistaSansOT-Bold, Arial, sans-serif" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
+                Op niveau
+            </text>
+            <text x="220" y="78" text-anchor="end" font-family="VistaSansOT-Bold, Arial, sans-serif" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
+                Actie gewenst
+            </text>
+            <text x="220" y="99.5" text-anchor="end" font-family="VistaSansOT-Bold, Arial, sans-serif" font-size="9px" fill="#BAD1E0" transform="rotate(-17, 330, 160)">
+                Actie vereist
+            </text>
         </svg>
     </div>
 
@@ -125,7 +124,7 @@
         const removeIndices = [6];
         
         const scores = [10, 7.5, 10, 7.5, 5, 5, 2.5, 5, 2.5, 5, 2.5, 7.5];
-        const labels = ["Veiligheid", "Leefbaarheid", "Inclusiviteit", "Klimaatadaptatie", "Natuur & /n Biodiversiteit", "Bronnenmanagement", "G", "Bezoekers /n & Bestedingen", "Toeristisch aanbod", "Bereikbaarheid"]; // Labels for segments
+        const labels = ["Veiligheid", "Leefbaarheid", "Inclusiviteit", "Klimaatadaptatie", "Natuur & \nBiodiversiteit", "Bronnenmanagement", "G", "Bezoekers & \nBestedingen", "Toeristisch aanbod", "Bereikbaarheid"]; // Added proper line breaks
         const descriptions = [ // Add your descriptions here, matching the order of your labels
             "Een veilige omgeving is de basis voor een succesvolle bestemming. Om dit inzichtelijk te maken kijken we onder andere naar overlast, ondermijningsrisico's en de veiligheidsbeleving.",
             "De kwaliteit van leven voor de lokale bevolking in relatie tot toerisme staat centraal in deze indicator. Hiervoor kijken we naar de ervaren balans tussen de voordelen en nadelen van toerisme voor de gemeenschap, waaronder de mate van toeristische druk en (ervaren) bewonersprofijt.",
@@ -159,6 +158,23 @@
             const startAngle = theta[i] + gap;
             const endAngle = theta[i + 1] - gap;
             const segmentRadius = innerRadius + (score / 10) * (outerRadius - innerRadius);
+            
+            // Determine color-based spacing
+            // - Blue segments (0-5) should have slightly more space
+            // - Purple segments (7-9) keep their current spacing
+            // - Multi-line labels need minimal additional space
+            
+            let textRadiusAdjustment = 10; // Base spacing for most labels
+            
+            // Adjust for blue segments (indices 0-5)
+            if (i <= 5) {
+                textRadiusAdjustment = 13; // More space for blue segments
+            }
+            
+            // Add minimal extra space for any multi-line label
+            if (labels[i].includes('\n')) {
+                textRadiusAdjustment += 1; // Just a tiny bit more for multi-line
+            }
         
             // Create background arc
             const [bgX1, bgY1] = polarToCartesian(outerRadius, startAngle);
@@ -197,7 +213,6 @@
                 // Get the bounding box of the hovered path element
                 const bbox = event.target.getBoundingClientRect();
                 const containerRect = chartContainer.getBoundingClientRect();
-        
             });
         
             path.addEventListener("mouseleave", () => {
@@ -208,68 +223,128 @@
         
             chart.appendChild(path);
         
-            // Create text arc
-            const textRadius = outerRadius + 10; // Slightly beyond the outer arc for visibility
-            const [arcStartX, arcStartY] = polarToCartesian(textRadius, startAngle);
-            const [arcEndX, arcEndY] = polarToCartesian(textRadius, endAngle);
-            const arcPathD = `M ${arcStartX},${arcStartY} A ${textRadius},${textRadius} 0 0,1 ${arcEndX},${arcEndY}`;
-        
-            const arcPath = document.createElementNS(svgNS, "path");
+            // Create text arc paths - separate arc for each segment text
+            // Use the per-segment radius adjustment defined above
+            const textRadius = outerRadius + textRadiusAdjustment;
+            
+            const midAngle = (startAngle + endAngle) / 2; // Calculate the middle angle of the segment
+            
+            // Create arc path for text with unique ID
             const arcPathID = `arcPath${i}`;
-            arcPath.setAttribute("id", arcPathID);
-            arcPath.setAttribute("d", arcPathD);
-            arcPath.setAttribute("fill", "none");
-            arcPath.setAttribute("stroke", "transparent"); // Invisible stroke for text path reference
-            chart.appendChild(arcPath);
-        
-            // Attach text to the arc path
-            const textElement = document.createElementNS(svgNS, "text");
-            const textPath = document.createElementNS(svgNS, "textPath");
-            textPath.setAttribute("href", `#${arcPathID}`);
-            textPath.setAttribute("startOffset", "50%"); // Center the text
-            textPath.setAttribute("text-anchor", "middle");
-        
-            textElement.appendChild(textPath);
-            textPath.setAttribute("fill", colors[i]);
-            textElement.setAttribute("font-size", "9px");
-            textElement.setAttribute("font-family", "VistaSansOT-Bold");
-            textElement.setAttribute("font-weight", "bold"); // Make text bold
-        
-            let formattedText;
-        
+            const arcPath = document.createElementNS(svgNS, "path");
+            
+            // Adjust arc length to be slightly shorter than the segment arc
+            // This creates better spacing for the text
+            const textArcGap = 0.05; // Gap for text arcs (larger than segment gaps)
+            const textStartAngle = startAngle + textArcGap;
+            const textEndAngle = endAngle - textArcGap;
+            
+            // For the first half (indices 0-5), we need to flip the text direction
             if (i < 6) {
-                if (labels[i].includes(" /n ")) {
-                    const [firstPart, secondPart] = labels[i].split(" /n ");
-                    formattedText = `
-                        <tspan x="0" dy="0em">${firstPart.split("").reverse().map(letter =>
-                            `<tspan dx="0em" rotate="180">${letter}</tspan>`).join("")}</tspan>
-                        <tspan x="0" dy="1.2em">${secondPart.split("").reverse().map(letter =>
-                            `<tspan dx="0em" rotate="180">${letter}</tspan>`).join("")}</tspan>`;
-                } else {
-                    formattedText = labels[i]
-                        .split("")
-                        .reverse()
-                        .map(letter => `<tspan dx="0em" rotate="180">${letter}</tspan>`)
-                        .join("");
-                }
+                // For the left half of the chart, text should be upside down (flipped)
+                const [arcStartX, arcStartY] = polarToCartesian(textRadius, textEndAngle);
+                const [arcEndX, arcEndY] = polarToCartesian(textRadius, textStartAngle);
+                arcPath.setAttribute("d", `M ${arcStartX},${arcStartY} A ${textRadius},${textRadius} 0 0,0 ${arcEndX},${arcEndY}`);
             } else {
-                // Normal text processing with multi-line support
-                if (labels[i].includes(" /n ")) {
-                    const [firstPart, secondPart] = labels[i].split(" /n ");
-                    formattedText = `
-                        <tspan x="0" dy="-0.6em">${firstPart}</tspan>
-                        <tspan x="0" dy="1.2em">${secondPart}</tspan>`;
-                } else {
-                    formattedText = `<tspan x="0" dy="0.6em">${labels[i]}</tspan>`;
-                }
+                // For the right half, text should be right-side up
+                const [arcStartX, arcStartY] = polarToCartesian(textRadius, textStartAngle);
+                const [arcEndX, arcEndY] = polarToCartesian(textRadius, textEndAngle);
+                arcPath.setAttribute("d", `M ${arcStartX},${arcStartY} A ${textRadius},${textRadius} 0 0,1 ${arcEndX},${arcEndY}`);
             }
-        
-        
-            // Insert transformed text into textPath
-            textPath.innerHTML = formattedText;
-        
+            
+            arcPath.setAttribute("id", arcPathID);
+            arcPath.setAttribute("fill", "none");
+            arcPath.setAttribute("stroke", "transparent"); // Invisible path for text
+            chart.appendChild(arcPath);
+            
+            // Create text element and attach to path
+            const labelText = labels[i];
+            let textElement;
+            
+            // Handle multi-line labels
+            if (labelText.includes('\n')) {
+                // For multi-line labels, create a special text element with tspans
+                textElement = document.createElementNS(svgNS, "text");
+                const textPath = document.createElementNS(svgNS, "textPath");
+                textPath.setAttribute("href", `#${arcPathID}`);
+                textPath.setAttribute("startOffset", "50%");
+                textPath.setAttribute("text-anchor", "middle");
+                
+                const [firstPart, secondPart] = labelText.split('\n');
+                
+                if (i < 6) {
+                    // Left side - both lines should be flipped
+                    const tspan1 = document.createElementNS(svgNS, "tspan");
+                    tspan1.setAttribute("x", "0");
+                    tspan1.setAttribute("dy", "-0.55em"); // More vertical spacing
+                    tspan1.textContent = firstPart;
+                    
+                    const tspan2 = document.createElementNS(svgNS, "tspan");
+                    tspan2.setAttribute("x", "0");
+                    tspan2.setAttribute("dy", "1.1em"); // More vertical spacing
+                    tspan2.textContent = secondPart;
+                    
+                    textPath.appendChild(tspan1);
+                    textPath.appendChild(tspan2);
+                } else {
+                    // Right side - normal text
+                    const tspan1 = document.createElementNS(svgNS, "tspan");
+                    tspan1.setAttribute("x", "0");
+                    tspan1.setAttribute("dy", "-0.55em"); // More vertical spacing
+                    tspan1.textContent = firstPart;
+                    
+                    const tspan2 = document.createElementNS(svgNS, "tspan");
+                    tspan2.setAttribute("x", "0");
+                    tspan2.setAttribute("dy", "1.1em"); // More vertical spacing
+                    tspan2.textContent = secondPart;
+                    
+                    textPath.appendChild(tspan1);
+                    textPath.appendChild(tspan2);
+                }
+                
+                textElement.appendChild(textPath);
+                textElement.setAttribute("fill", colors[i]);
+                textElement.setAttribute("font-size", "9px");
+                textElement.setAttribute("font-family", "VistaSansOT-Bold, Arial, sans-serif");
+                textElement.setAttribute("font-weight", "bold");
+            } else {
+                // Single line labels use the helper function
+                textElement = createTextOnPath(
+                    arcPathID, 
+                    labelText, 
+                    colors[i], 
+                    "VistaSansOT-Bold, Arial, sans-serif", 
+                    "9px", 
+                    i
+                );
+            }
+            
             chart.appendChild(textElement);
         });
-            </script>
+        
+        // Helper function to create SVG text elements with proper positioning
+        function createTextOnPath(pathId, text, color, fontFamily, fontSize, i) {
+            // Create text element and text path
+            const textElement = document.createElementNS(svgNS, "text");
+            const textPath = document.createElementNS(svgNS, "textPath");
+            
+            // Set attributes for text path
+            textPath.setAttribute("href", `#${pathId}`);
+            textPath.setAttribute("startOffset", "50%");
+            textPath.setAttribute("text-anchor", "middle");
+            
+            // Set attributes for text element
+            textElement.appendChild(textPath);
+            textElement.setAttribute("fill", color);
+            textElement.setAttribute("font-size", fontSize);
+            textElement.setAttribute("font-family", fontFamily);
+            textElement.setAttribute("font-weight", "bold");
+            
+            // Add the text content
+            textPath.textContent = text;
+            
+            return textElement;
+        }
+    </script>
 </body>
 </html>
